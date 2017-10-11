@@ -1,0 +1,1 @@
+/home/ted/Sources/Git_Projects/SyncScreenQuickControls2/SyncScreenQuickControls2.pro
