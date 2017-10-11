@@ -1,0 +1,2 @@
+# ScreenTrooper
+Remote Configurable Slideshow
