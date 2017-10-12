@@ -1,0 +1,3 @@
+[submodule "QSimpleRestServer"]
+	path = QSimpleRestServer
+	url = https://github.com/Tropby/QSimpleRestServer
