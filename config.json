@@ -1,0 +1,65 @@
+{
+    "name": "Android1",
+    "device": "Android",
+    "default_timer": "10",
+    "default_directory": "/Downloads",
+    "playlist": [
+        {"playlist": "merch"},
+        {"playlist": "info"},
+        {
+            "file": "merch1.png",
+            "time": 10
+        }
+    ],
+    "playlists": [
+        {
+            "merch": [
+                {
+                    "file": "merch1.png",
+                    "time": 10
+                },
+                {
+                    "file": "merch2.png",
+                    "time": 15
+                }
+            ]
+        },
+        {
+            "info": [
+                {
+                    "file": "info1.png",
+                    "exclude": true,
+                    "time": 10
+                },
+                {
+                    "file": "info2.png",
+                    "time": 15
+                }
+            ]
+        }
+    ],
+    "footer": {
+        "enable": true,
+        "height": 100,
+        "info": {
+            "enable": true,
+            "background": "#FFFF00",
+            "color": "#FFFFFF",
+            "size": 20,
+            "spacing": 10,
+            "speed": 10,
+            "content": [
+                "testy",
+                "testo"
+            ]
+        },
+        "clock": {
+            "enable": true,
+            "background": "#FFFF00",
+            "color" : "#FFFFFF",
+            "size": 20,
+            "spacing" : 200,
+            "offset": "0"
+        }
+    }
+}
