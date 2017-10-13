@@ -1,6 +1,4 @@
 [submodule "QSimpleRestServer"]
 	path = QSimpleRestServer
 	url = https://github.com/Tropby/QSimpleRestServer
-[submodule "social-connect-qml-plugin"]
-	path = social-connect-qml-plugin
-	url = https://github.com/microsoft-mobile/social-connect-qml-plugin
+
