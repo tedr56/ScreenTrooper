@@ -1,4 +1,4 @@
-QT += qml quick
+QT += qml quick network
 
 CONFIG += c++11
 
@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     QSimpleRestServer/src/http/qhttprequest.cpp \
     QSimpleRestServer/src/http/qhttpresponse.cpp \
     QSimpleRestServer/src/http/qhttpserver.cpp \
-    QSimpleRestServer/src/http/http_parser.c
+    QSimpleRestServer/src/http/http_parser.c \
+    folderio.cpp
 
 RESOURCES += qml.qrc \
     icons.qrc
@@ -58,4 +59,5 @@ HEADERS += \
     QSimpleRestServer/src/http/qhttpresponse.h \
     QSimpleRestServer/src/http/qhttpserver.h \
     QSimpleRestServer/src/http/qhttpserverapi.h \
-    QSimpleRestServer/src/http/qhttpserverfwd.h
+    QSimpleRestServer/src/http/qhttpserverfwd.h \
+    folderio.h

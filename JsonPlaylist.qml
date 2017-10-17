@@ -70,6 +70,8 @@ Item {
             }
         } else if (playlist.files) {
             parsePlaylistFiles(playlist.files)
+        } else if (playlist.folder) {
+            parsePlaylistFolder(playlist)
         }
     }
 
@@ -189,6 +191,14 @@ Item {
         url = path + "/" + file
         nextItemSet()
     }
+
+    function parsePlaylistFolder(playlist) {
+        var folder = playlist.folder
+        var time = playlist.time
+        var last_picture = playlist.last_picture
+
+    }
+
 
     function setNext() {
         imageTimer.stop()

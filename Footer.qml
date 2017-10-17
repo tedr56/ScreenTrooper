@@ -77,7 +77,9 @@ FooterForm {
     function getSchedule(JsonObject) {
 
         var schedule = JsonObject.footer.info.schedule
+        if (!schedule) return
         var scheduleEnable = schedule.enable
+        if (!scheduleEnable) return
         var scheduleEnableCurrent = schedule.enableCurrent
         var scheduleCurrentText = schedule.currentText
         var scheduleEnableNext = schedule.enableNext

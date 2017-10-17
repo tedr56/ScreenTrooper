@@ -2,3 +2,6 @@
 	path = QSimpleRestServer
 	url = https://github.com/Tropby/QSimpleRestServer
 
+[submodule "QtInstagram"]
+	path = QtInstagram
+	url = https://github.com/neochapay/QtInstagram.git
