@@ -45,7 +45,7 @@ ApplicationWindow {
             console.log(jsonItem)
             console.log("DataChanged End")
             // TODO : Envoyé valeur/erreur par jsonRest Signal
-            jsonRest.DataChanged()
+            //jsonRest.DataChanged()
         }
     }
 

@@ -26,6 +26,7 @@ public:
 
     Q_INVOKABLE QString getFile(const int fileIndex, const QString Directory);
 
+
 public slots:
     void setSource(const QString& source);
     void DataChanged(QString);
