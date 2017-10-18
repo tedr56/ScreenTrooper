@@ -1,5 +1,6 @@
 #include "folderio.h"
 #include <QDir>
+#include <QUrl>
 
 FolderIO::FolderIO(QObject *parent) : QObject(parent)
 {
@@ -7,31 +8,35 @@ FolderIO::FolderIO(QObject *parent) : QObject(parent)
 
 QString FolderIO::getFile(QString Directory, int last_added)
 {
-    if (Directory.isEmpty())
-        return "";
+    if (Directory.isEmpty())    return "";
 
-    if (!Directory.compare(m_directory)) {
-        m_directory = Directory;
+    if (!m_lastplayed.contains(Directory)) {
+        m_lastplayed.insert(Directory, 0);
     }
 
-    QDir *folder = new QDir(m_directory);
+    QDir *folder = new QDir(QUrl(Directory).toLocalFile());
     folder->setFilter(QDir::Files);
-    folder->setSorting(QDir::Time);
-
-    if (m_file_counter < 0)
-        m_file_counter = folder->count() - last_added;
-
-    if (m_file_counter < 0)
-        m_file_counter = 0;
-
-
-    QString result = folder->entryList()[m_file_counter];
-
-    m_file_counter++;
-
-    if (m_file_counter == folder->count() - 1) {
-        m_file_counter = folder->count() - last_added;
+    if (last_added > 0) {
+        folder->setSorting(QDir::Time);
+    } else {
+        folder->setSorting(QDir::Name);
     }
-    return result
+    if (m_lastplayed[Directory] >= folder->count()) {
+        if (last_added > 0) {
+            m_lastplayed[Directory] = folder->count() - last_added;
+            if (m_lastplayed[Directory] < 0) {
+                m_lastplayed[Directory] = 0;
+            }
+            return "";
+        } else {
+            m_lastplayed[Directory] = 0;
+            return "";
+        }
+    }
 
+    QString result = folder->entryList()[m_lastplayed[Directory]];
+
+    m_lastplayed[Directory] = m_lastplayed[Directory] + 1;
+
+    return result;
 }

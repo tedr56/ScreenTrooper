@@ -3,6 +3,7 @@
 #include "fileio.h"
 #include "QSimpleRestServer/src/restserver.h"
 #include "qjsonrest.h"
+#include "folderio.h"
 
 #include <qqmlengine.h>
 #include <qqmlcontext.h>
@@ -10,7 +11,6 @@
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickview.h>
 
-#include <QtInstagram/src/api2/QtInstagram>
 #include <QtNetwork>
 
 int main(int argc, char *argv[])
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
     restServer.listen(8080);
 
     qmlRegisterType<FileIO, 1>("FileIO", 1, 0, "FileIO");
+    qmlRegisterType<FolderIO, 1>("FolderIO", 1, 0, "FolderIO");
     qmlRegisterType<QJsonRest, 1>("QJsonRest", 1, 0, "QJsonRest");
 
     engine.rootContext()->setContextProperty("jsonRest", jsonRest);

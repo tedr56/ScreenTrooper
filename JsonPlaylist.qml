@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import FolderIO 1.0
 
 Item {
     id: jsonPlaylistRoot
@@ -18,9 +19,14 @@ Item {
 
     property url directory: ""
 
+
+    FolderIO {
+        id: folderC
+    }
+
     Timer {
         id: imageTimer
-        interval: 500
+        interval: 5000
         running: false
         repeat: false
         onTriggered: timerEnded()
@@ -54,7 +60,7 @@ Item {
             return //TODO Display Error - No Playlist
         }
 
-        console.log(playlist.playlist)
+        //console.log(playlist.playlist)
 
         if (getScheduleExcluded(playlist.from, playlist.to)) {
             setNextPlaylist()
@@ -76,13 +82,13 @@ Item {
     }
 
     function getScheduleExcluded(from, to){
-        console.log(from)
+        //console.log(from)
 
         var exclude  = false
 
         var date = new Date()
 
-        console.log("Schedule")
+        //console.log("Schedule")
 
         if (from) {
             var fromDate = Date.fromLocaleString(Qt.locale(), from, "dd/MM/yyyy hh:mm");
@@ -100,7 +106,7 @@ Item {
             }
         }
 
-        console.log(date)
+        //console.log(date)
 
         return exclude
     }
@@ -113,6 +119,11 @@ Item {
             subDirectory = "/" + subDirectory
         }
         var absDirectory = directory + subDirectory
+
+        if (playlistObject.include_all) {
+            parsePlaylistFolder(playlistObject)
+            return
+        }
 
         //Todo : Parse include_all
 
@@ -193,10 +204,28 @@ Item {
     }
 
     function parsePlaylistFolder(playlist) {
-        var folder = playlist.folder
-        var time = playlist.time
-        var last_picture = playlist.last_picture
+        var folder = playlist.directory
+        folder = directory + "/" + folder
+        var time = timer
+        time = playlist.time || time
 
+        var last_added = playlist.last_added
+        var fileResult
+        if (last_added) {
+            fileResult = folderC.getFile(folder, last_added)
+        } else {
+            fileResult = folderC.getFile(folder)
+        }
+        if (fileResult) {
+            url = folder + "/" + fileResult
+            imageTimer.interval = time * 1000
+            //console.log("Timer set to " + time * 1000)
+            //console.log("Timer set to " + imageTimer.interval)
+            nextItemSet()
+
+        } else {
+            endOfPlaylist()
+        }
     }
 
 
