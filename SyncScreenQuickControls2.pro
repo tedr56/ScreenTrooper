@@ -43,7 +43,14 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     ../config.json \
     QSimpleRestServer/REST.pri \
-    QSimpleRestServer/src/http/README.md
+    QSimpleRestServer/src/http/README.md \
+    android/AndroidManifest.xml \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradlew \
+    android/res/values/libs.xml \
+    android/build.gradle \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew.bat
 
 HEADERS += \
     fileio.h \
@@ -59,3 +66,5 @@ HEADERS += \
     QSimpleRestServer/src/http/qhttpserver.h \
     QSimpleRestServer/src/http/qhttpserverapi.h \
     QSimpleRestServer/src/http/qhttpserverfwd.h
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
