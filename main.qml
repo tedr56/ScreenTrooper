@@ -18,6 +18,8 @@ ApplicationWindow {
 
     visible: true
 
+    visibility: "FullScreen"
+
     width: 640
     height: 480
     title: qsTr("SyncScreen")
