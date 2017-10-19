@@ -72,6 +72,8 @@ Item {
             if (JsonObject.playlists.hasOwnProperty(playlist.playlist)) {
                 parsePlaylist(JsonObject.playlists[playlist.playlist])
             } else {
+                console.log("Link to playlist " + playlist.playlist + "not found")
+                setNextPlaylist()
                 return //Todo Linked Playlist not found
             }
         } else if (playlist.files) {
