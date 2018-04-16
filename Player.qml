@@ -16,7 +16,7 @@ PlayerForm {
         console.log(playingFile)
         console.log(playingFileExtension)
         var imagesExtension = ["jpg", "png"]
-        var videoExtension = ["mkv", "mp4", "avi" ]
+        var videoExtension = ["mkv", "mp4", "avi", "m4v" ]
         console.log(imagesExtension.indexOf(playingFileExtension))
         console.log(videoExtension.indexOf(playingFileExtension))
         if (imagesExtension.indexOf(playingFileExtension) >= 0) {
