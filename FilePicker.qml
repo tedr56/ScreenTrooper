@@ -22,11 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import QtQuick 2.0
+import QtQuick 2.11
 import QtQuick.Controls 1.4 as OldControls
-import QtQuick.Controls 2.1
-import Qt.labs.folderlistmodel 2.1
-import QtQuick.Window 2.0
+import QtQuick.Controls 2.4
+import Qt.labs.folderlistmodel 2.2
+import QtQuick.Window 2.11
 import "utils.js" as Utils
 
 Item {

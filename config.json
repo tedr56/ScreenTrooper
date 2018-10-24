@@ -1,8 +1,8 @@
 {
-    "name": "Android1",
+    "name": "TedCubot",
     "device": "Android",
     "default_timer": "10",
-    "default_directory": "/Downloads",
+    "default_directory": "/storage/emulated/0/StormTrooper/Content",
     "playlist": [
         {"playlist": "merch"},
         {"playlist": "info"},

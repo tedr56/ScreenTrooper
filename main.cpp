@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     app.setOrganizationName("ARocherVJ");
     app.setOrganizationDomain("arochervj.com");
-    app.setApplicationName("SyncScreen");
+    app.setApplicationName("ScreenTrooper");
 
     QQmlApplicationEngine engine;
 

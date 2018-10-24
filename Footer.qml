@@ -1,6 +1,6 @@
-import QtQuick 2.7
+import QtQuick 2.11
 import FileIO 1.0
-import QtQuick.Window 2.2
+import QtQuick.Window 2.11
 
 
 FooterForm {

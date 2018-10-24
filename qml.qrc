@@ -9,5 +9,7 @@
         <file>JsonPlaylist.qml</file>
         <file>FilePicker.qml</file>
         <file>utils.js</file>
+        <file>VideoPlayer.qml</file>
+        <file>VideoPlayerForm.ui.qml</file>
     </qresource>
 </RCC>

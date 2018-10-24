@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.11
 import FolderIO 1.0
 
 Item {
@@ -79,7 +79,7 @@ Item {
         } else if (playlist.files) {
             parsePlaylistFiles(playlist.files)
         } else if (playlist.folder) {
-            parsePlaylistFolder(playlist)
+            parsePlaylistFolder(playlist.folder)
         }
     }
 

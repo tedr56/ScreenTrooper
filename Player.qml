@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.11
 
 PlayerForm {
     anchors.fill: parent
@@ -16,7 +16,7 @@ PlayerForm {
         console.log(playingFile)
         console.log(playingFileExtension)
         var imagesExtension = ["jpg", "png"]
-        var videoExtension = ["mkv", "mp4", "avi", "m4v" ]
+        var videoExtension = ["mkv", "mp4", "avi", "m4v", "mov"]
         console.log(imagesExtension.indexOf(playingFileExtension))
         console.log(videoExtension.indexOf(playingFileExtension))
         if (imagesExtension.indexOf(playingFileExtension) >= 0) {
@@ -28,6 +28,10 @@ PlayerForm {
                 playerStart(image1)
             }
         } else if (videoExtension.indexOf(playingFileExtension) >= 0) {
+            console.log(videoOutput.availability)
+            videoOutput.autoLoad = true
+            videoOutput.visible = false
+            videoOutput.pause()
             videoOutput.source = playingFile
             playerStart(videoOutput)
         } else {
@@ -57,21 +61,28 @@ PlayerForm {
         }
     }
 
-    function playerStopped(){
+    function imageStopped(){
+        console.log("Image Stopped")
+        playlistManager.setNext()
+    }
+
+    function videoStopped(){
+        console.log("Video Stopped")
         playlistManager.setNext()
     }
 
     Connections {
         target: playlistManager
-        onTimerEnded: playerStopped()
+        onTimerEnded: imageStopped()
         onNextItemSet: playerSort()
     }
 
     Connections {
         target: videoOutput
-        onStopped: playerStopped()
+        onStopped: videoStopped()
     }
-    Component.onCompleted: playlistManager.setNext()
 
+    Component.onCompleted: playlistManager.setNext()
     mouseSpace.onPressed: playlistManager.setNext()
+
 }
